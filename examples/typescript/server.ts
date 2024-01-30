@@ -33,12 +33,72 @@ io.on("connection", (socket) => {
 
     setInterval(() => {
         const start = Date.now();
-        const obj = {
-            randomIntA: getRandomInt(100),
-            randomIntB: getRandomInt(100),
-            randomIntC: getRandomInt(100),
-        };
-        socket.emit("ping", obj, (res) => {
+        const lowPumpTableData = [
+            {
+              lowPumpName: 'TK-P-0401A',
+              runStatus: '启动',
+              pumpSwitch: '启动',
+              output: getRandomInt(50),
+              flow: getRandomInt(500),
+            },
+            {
+              lowPumpName: 'TK-P-0401B',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            },
+            {
+              lowPumpName: 'TK-P-0401C',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            },
+            {
+              lowPumpName: 'TK-P-0401D',
+              runStatus: '启动',
+              pumpSwitch: '启动',
+              output: getRandomInt(50),
+              flow: getRandomInt(500),
+            },
+            {
+              lowPumpName: 'TK-P-0401E',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            },
+            {
+              lowPumpName: 'TK-P-0401F',
+              runStatus: '启动',
+              pumpSwitch: '启动',
+              output: getRandomInt(50),
+              flow: getRandomInt(500),
+            },
+            {
+              lowPumpName: 'TK-P-0401H',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            },
+            {
+              lowPumpName: 'TK-P-0401J',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            },
+            {
+              lowPumpName: 'TK-P-0401K',
+              runStatus: '停止',
+              pumpSwitch: '停止',
+              output: getRandomInt(10),
+              flow: getRandomInt(10),
+            }
+          ];
+        socket.emit("ping", lowPumpTableData, (res) => {
             console.log(`pong (latency: ${Date.now() - start} ms)`);
             console.log(res, '<-----res');
         });
