@@ -98,8 +98,16 @@ io.on("connection", (socket) => {
               flow: getRandomInt(10),
             }
           ];
+        const obj = {
+            a: getRandomInt(10),
+            b: getRandomInt(10),
+        };
         socket.emit("ping", lowPumpTableData, (res) => {
             console.log(`pong (latency: ${Date.now() - start} ms)`);
+            console.log(res, '<-----res');
+        });
+        socket.emit("tankCarTable", obj, (res) => {
+            console.log(`tankCarTable (latency: ${Date.now() - start} ms)`);
             console.log(res, '<-----res');
         });
     }, 1000);
