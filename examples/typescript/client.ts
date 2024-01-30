@@ -10,9 +10,15 @@ socket.on("disconnect", () => {
     console.log(`disconnect`);
 });
 
-setInterval(() => {
-    const start = Date.now();
-    socket.emit("ping", () => {
-        console.log(`pong (latency: ${Date.now() - start} ms)`);
-    });
-}, 1000);
+// setInterval(() => {
+//     const start = Date.now();
+//     socket.emit("ping", () => {
+//         console.log(`pong (latency: ${Date.now() - start} ms)`);
+//     });
+// }, 1000);
+
+socket.on("ping", (arg, cb) => {
+    console.log("ping");
+    console.log(arg, '<------arg');
+    cb('got it');
+});
