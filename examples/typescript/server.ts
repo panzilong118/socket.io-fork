@@ -102,11 +102,11 @@ io.on("connection", (socket) => {
             a: getRandomInt(10),
             b: getRandomInt(10),
         };
-        socket.emit("ping", lowPumpTableData, (res) => {
+        socket.emit("lowPump", lowPumpTableData, (res) => {
             console.log(`pong (latency: ${Date.now() - start} ms)`);
             console.log(res, '<-----res');
         });
-        socket.emit("tankCarTable", obj, (res) => {
+        socket.emit("recommendTime", obj, (res) => {
             console.log(`tankCarTable (latency: ${Date.now() - start} ms)`);
             console.log(res, '<-----res');
         });
