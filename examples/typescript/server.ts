@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { tankCar } from './tankCar'
 
 // const io = new Server(8080);
 const io = new Server(8080, {
@@ -110,7 +111,11 @@ io.on("connection", (socket) => {
             console.log(`tankCarTable (latency: ${Date.now() - start} ms)`);
             console.log(res, '<-----res');
         });
-    }, 1000);
+        socket.emit("tankCar", tankCar, (res) => {
+          console.log(`tankCar (latency: ${Date.now() - start} ms)`);
+          console.log(res, '<-----res');
+      });
+    }, 1000 * 10);
 
     socket.on("disconnect", () => {
         console.log(`disconnect ${socket.id}`);
